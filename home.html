@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>MIMOZA</title>
+<link href="style.css" type="text/css" rel="stylesheet">
+		
+<script> 
+var vid, playbtn, seekslider, curtimetext, durtimetext;
+function intializePlayer(){
+	// Set object references
+	vid = document.getElementById("my_video");
+	playbtn = document.getElementById("playpausebtn");
+	seekslider = document.getElementById("seekslider");
+	curtimetext = document.getElementById("curtimetext");
+	durtimetext = document.getElementById("durtimetext");
+	// Add event listeners
+	playbtn.addEventListener("click",playPause,false);
+	seekslider.addEventListener("change",vidSeek,false);
+	vid.addEventListener("timeupdate",seektimeupdate,false);
+}
+window.onload = intializePlayer;
+function playPause(){
+	if(vid.paused){
+		vid.play();
+		playbtn.innerHTML = "Pause";
+	} else {
+		vid.pause();
+		playbtn.innerHTML = "Play";
+	}
+}
+function vidSeek(){
+	var seekto = vid.duration * (seekslider.value / 100);
+	vid.currentTime = seekto;
+}
+function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	var curmins = Math.floor(vid.currentTime / 60);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+}
+</script>  
+<style>
+div.img {
+    border: 1px solid #ccc;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 30px;
+    text-align: center;
+	
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 10px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<body>
+<center>
+<header>
+<img src="mimoza-logo.png" alt="Fjords" >
+                
+</header>
+</center>
+<!-- main menu -->
+<br>
+<br>
+<br>
+			
+<div class="wrapper"> 
+			
+<nav >
+<ul style="color: #98FB98;">
+<li> <a href="" >HOME</a></li>
+<li><a href="">ABOUT US</a></li>
+<li><a href="">PRODUCTS</a></li> 
+<li><a href="">SOUVENIR</a></li> 
+<li><a href="">NEWS</a></li> 
+<li><a href="">GALLERY</a></li> 
+<li><a href="">CONTACT US</a></li> 
+<li><a href="">SALES POLICY</a></li> 
+			    
+</ul>
+</nav>	
+</div>
+<body> 
+<center>
+<div> 
+    <br><br>
+  <video id="my_video" width="600">
+    <source src="Mimoza.mp4" type="video/mp4">
+  <source src="Mimoza.ogg" type="video/ogg">
+  <source src="Mimoza.WebM" type="video/Webm">
+    Your browser does not support HTML5 video.
+	
+  </video>
+   <div id="video_controls_bar">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+  </div>
+</div> 
+
+</body> 
+</video>
+</center>
+</section>
+
+<bgsound src="Mimoza.wav" loop="infinite">
+	<div style="display:none">		
+<audio controls autoplay>
+  <source src="Mimoza.wav" type="audio/wav">
+  <source src="horse.mp3" type="audio/mpeg">
+  <source src="horse.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+</div>
+
+</div>
+</div>
+</div>
+<br>	
+<br>
+<br>
+<br>
+<br>
+<div class="box">          
+<h3 style="text-align:center" >WELCOME TO MIMOZA BAKERY AND SWEETS</h3>
+<p style="text-align:center" >Mimoza Creations is all about Glamour in Desserts, a combination of finest ingredients, food tasting experiences & travels, friendship & partnership, trust and sound business acumen.Mimoza’s concept is all about Chocolates, Cakes, Cupcakes and Cookies. Our cakes are all made from scratch and our chocolates are from Belgium.</p>
+</div>
+<br>
+<br>
+<br>
+
+				
+<h3 style="text-align:center">A Glimpse Of Our Bakery & Sweets</h3>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="Mimoza.png">
+      <img src="Mimoza.png" alt="CHOCOLATE COATED" style="width:100%"/>
+    </a>
+    <div style="color:	#CD853F;" class="desc">CHOCOLATE COATED</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="0912201401300938.png">
+      <img src="0912201401300938.png" alt="PRE-ARRANGED CHOCOLATES" style="width:100%"/>
+    </a>
+    <div style="color:	#CD853F;" class="desc">PRE-ARRANGED CHOCOLATES</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="091220141220082.png">
+      <img src="091220141220082.png" alt="CHILI CHOCOLATE CAKE" style="width:100%"/>
+    </a>
+    <div  style="color:	#CD853F;"class="desc">CHILI CHOCOLATE CAKE</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a target="_blank" href="0812201407015561.png">
+      <img src="0812201407015561.png" alt="SMURF BIRTHDAY CAKE" style="width:100%"/>
+    </a>
+    <div style="color:	#CD853F;" class="desc">SMURF BIRTHDAY CAKE</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<br>
+<br>
+<br>			
+<footer style="text-align:center">
+     
+      <a  href="http://www.mimoza-uae.com/Default.aspx" class="mail_link">Visit Our Website!</a>
+
+      <a  href="https://updatemybrowser.org/" class="f_phone">Need A Help? </a>
+    <br>
+<br>
+<p style="text-align:center"> © 2014 Mimoza Bakery & Sweets. All rights reserved.
+Powered by: ACIT</p>
+    
+  </footer>
+ 
